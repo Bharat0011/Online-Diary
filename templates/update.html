@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+   <title>My Diary</title>
+   <style>
+      .box {
+         margin-bottom: 20px;
+         box-shadow: 3px 3px 5px 3px #ccc;
+         border-radius: 5px;
+         padding: 10px;
+      }
+
+      .mynav {
+         background-color: #41afd0;
+
+      }
+
+      .mybrand {
+         color: white;
+         font-weight: bolder;
+         letter-spacing: 2px;
+      }
+
+      .mybrand:hover {
+         color: white;
+      }
+
+      .mynav_link {
+         color: white;
+         font-weight: bolder;
+         text-transform: uppercase;
+         letter-spacing: 1px;
+         border: 1px solid white;
+         border-radius: 5px;
+         text-align: center;
+      }
+
+      .mynav_link1 {
+         color: white;
+         font-weight: bolder;
+      }
+
+      .mynav_link1:hover {
+         color: white;
+      }
+
+      .mynav_link:hover {
+         color: #41afd0;
+         background-color: white;
+         transition: 1s ease;
+         border-radius: 5px;
+      }
+
+      .myheading {
+         text-align: center;
+         margin-top: 30px;
+         color: #024d66;
+      }
+
+      .myadd {
+         position: relative;
+         left: 43%;
+         top: 25px;
+         color: #41afd0;
+         background-color: white;
+         font-weight: bolder;
+         padding: 8px;
+         border-radius: 5px;
+         border: 2px solid #41afd0;
+         text-align: center;
+      }
+
+      .myadd:hover {
+         color: white;
+         background-color: #41afd0;
+         text-decoration: none;
+         transition: 1s ease;
+      }
+
+      .content {
+         margin-top: 40px;
+      }
+
+      .blue-text {
+         color: #41afd0;
+         font-weight: bold;
+      }
+
+      .red-text {
+         color: rgb(241, 119, 71);
+      }
+
+      .mydelete {
+         display: inline-block;
+         position: relative;
+         left: 43%;
+         border: 2px solid #e96565;
+         padding: 3px;
+         border-radius: 4px;
+         color: #e96565;
+         transition: .5s ease;
+         font-weight: 500;
+      }
+
+      .mydelete:hover {
+         text-decoration: none;
+         color: white;
+         background-color: #e96565;
+         transition: .5s ease;
+      }
+   </style>
+</head>
+
+<body>
+
+   <header>
+
+      <nav class="navbar navbar-expand-lg mynav">
+         <a class="navbar-brand mybrand" href="#">Online Diary</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item">
+                  <a class="nav-link mynav_link1" href="#">{{username}}</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link mynav_link" href="{% url 'logout' %}">Logout</a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+
+   </header>
+
+
+   <div class='container'>
+      <div>
+         <h1 class="myheading">Update Memory {{data}}</h1>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="content">
+         
+         <form action="" method="POST">
+         {% csrf_token %}
+         <div class="box">
+            
+            <div class="blue-text">{{data.date}}</div>
+            <div class="red-text">
+                <input type="text" class="form-control" name="updatedContent" value="{{data.content}}">
+            </div>
+            <br>
+            <input type="submit" value="Update" class="btn btn-info">
+         </div>
+         </form>
+      </div>
+
+   </div>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>

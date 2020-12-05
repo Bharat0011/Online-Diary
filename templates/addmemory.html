@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Add Memory</title>
+    <style>
+      .myheading
+      {
+         text-align: center;
+         margin-top: 30px;
+         color: #024d66;
+      }
+      .myadd{
+        position: relative;
+        left: 43%;
+        top: 0;
+        color: #41afd0;
+        background-color: white;
+        font-weight: bolder;
+        padding: 8px;
+        border-radius: 5px;
+        border: 2px solid #41afd0;
+        text-align: center;
+     }
+     .myadd:hover
+     {
+        color: white;
+        background-color: #41afd0;
+        text-decoration: none;
+        transition: 1s ease;
+     }
+
+     .myadd1{
+      position: relative;
+      left: 43%;
+      top: 25px;
+      color: #41afd0;
+      background-color: white;
+      font-weight: bolder;
+      padding: 8px;
+      border-radius: 5px;
+      border: 2px solid #41afd0;
+      text-align: center;
+   }
+   .myadd1:hover
+     {
+        color: white;
+        background-color: #41afd0;
+        text-decoration: none;
+        transition: 1s ease;
+     }
+     .homebtn{
+       display : flex;
+       justify-content: center;
+       align-items:center;
+
+     }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2 class="center myheading">Create a new Memory</h2>
+        <div class="row">
+            <form class="col s12" method="POST" action="{% url 'add' %}">
+                {% csrf_token %}
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" class="materialize-textarea" name="data" required></textarea>
+                  <label for="textarea1">What happened today?</label>
+                </div>
+              </div>
+
+              <button class="myadd" type="submit">Add Memory</button>
+            </form>
+        </div>
+        <br>
+        <div class = "homebtn">
+        <a href="{% url 'show' %}" class="myadd1">My Memories</a>
+        </div>
+    </div>
+
+</body>
+</html>
